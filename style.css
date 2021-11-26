@@ -3,3 +3,11 @@
   text-align: center;
   color: #fff;
 }
+
+#searchBtn {
+  background-color: greenyellow;
+}
+#header {
+  font-family: sans-serif;
+  font-size: 50px;
+}

@@ -1,5 +1,6 @@
 var searchBtn = document.getElementById("searchBtn");
 var currentWeatherDiv = document.querySelector("#currentWeather");
+var fiveDay = document.querySelector("#fiveDay");
 //var searchValue;
 
 var apiKey = "d8cf782e3cf7bd46d6aaeff9cbd9a0b4";
@@ -17,6 +18,29 @@ function forecastWeather(lat, lon) {
     })
     .then(function (forecastData) {
       console.log(forecastData);
+
+      var forecastDate = forecastData.daily[0].dt;
+      var forecastTemp = forecastData.daily[0].temp.day;
+      var forecastWind = forecastData.daily[0].wind_speed;
+      var forecastHumidity = forecastData.daily[0].humidity + " %";
+
+      var timeDate = new Date(forecastDate * 1000);
+      console.log(timeDate);
+
+      var hDt = document.createElement("h3");
+      var pForecastTemp = document.createElement("p");
+      var pForecastWind = document.createElement("p");
+      var pForecastHumidity = document.createElement("p");
+
+      hDt.textContent = "" + timeDate;
+      pForecastTemp.textContent = "" + forecastTemp;
+      pForecastWind.textContent = "" + forecastWind;
+      pForecastHumidity.textContent = "" + forecastHumidity;
+
+      fiveDay.appendChild(hDt);
+      fiveDay.appendChild(pForecastTemp);
+      fiveDay.appendChild(pForecastWind);
+      fiveDay.appendChild(pForecastHumidity);
     });
 }
 
@@ -34,6 +58,9 @@ function currentWeather(city) {
 
       var city = currentData.name;
       var date = currentData.dt;
+
+      var currentTime = new Date(date * 1000);
+
       var temp = currentData.main.temp;
       var wind = currentData.wind.speed;
       var humidity = currentData.main.humidity;
@@ -50,7 +77,7 @@ function currentWeather(city) {
       var pTemp = document.createElement("p");
       var pHumidity = document.createElement("p");
 
-      h3.textContent = city + " " + date;
+      h3.textContent = city + " " + currentTime;
       pTemp.textContent = "Temp: " + temp;
       pWind.textContent = "Wind: " + wind;
       pHumidity.textContent = "Humidity: " + humidity;
