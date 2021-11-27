@@ -1,6 +1,7 @@
 var searchBtn = document.getElementById("searchBtn");
 var currentWeatherDiv = document.querySelector("#currentWeather");
 var fiveDay = document.querySelector("#fiveDay");
+var cityList = document.querySelector("#cityList");
 //var searchValue;
 
 var apiKey = "d8cf782e3cf7bd46d6aaeff9cbd9a0b4";
@@ -18,29 +19,47 @@ function forecastWeather(lat, lon) {
     })
     .then(function (forecastData) {
       console.log(forecastData);
+      fiveDay.textContent = "";
 
-      var forecastDate = forecastData.daily[0].dt;
-      var forecastTemp = forecastData.daily[0].temp.day;
-      var forecastWind = forecastData.daily[0].wind_speed;
-      var forecastHumidity = forecastData.daily[0].humidity + " %";
+      for (var i = 0; i < 5; i++) {
+        var forecastDate = forecastData.daily[i].dt;
+        var forecastTemp = forecastData.daily[i].temp.day;
 
-      var timeDate = new Date(forecastDate * 1000);
-      console.log(timeDate);
+        var forecastConversion = (forecastTemp - 273.15) * 1.8 + 32;
+        console.log(forecastConversion);
 
-      var hDt = document.createElement("h3");
-      var pForecastTemp = document.createElement("p");
-      var pForecastWind = document.createElement("p");
-      var pForecastHumidity = document.createElement("p");
+        var forecastWind = forecastData.daily[i].wind_speed;
+        var forecastHumidity = forecastData.daily[i].humidity + " %";
 
-      hDt.textContent = "" + timeDate;
-      pForecastTemp.textContent = "" + forecastTemp;
-      pForecastWind.textContent = "" + forecastWind;
-      pForecastHumidity.textContent = "" + forecastHumidity;
+        var timeDate = new Date(forecastDate * 1000);
+        console.log(timeDate);
 
-      fiveDay.appendChild(hDt);
-      fiveDay.appendChild(pForecastTemp);
-      fiveDay.appendChild(pForecastWind);
-      fiveDay.appendChild(pForecastHumidity);
+        var cardDiv = document.createElement("div");
+        var hDt = document.createElement("h3");
+        var pForecastTemp = document.createElement("p");
+        var pForecastWind = document.createElement("p");
+        var pForecastHumidity = document.createElement("p");
+
+        hDt.textContent = "" + timeDate;
+        pForecastTemp.textContent = "" + forecastConversion + " °F";
+        pForecastWind.textContent = "" + forecastWind;
+        pForecastHumidity.textContent = "" + forecastHumidity;
+
+        cardDiv.classList.add("card");
+        hDt.classList.add("card-title");
+        pForecastTemp.classList.add("card-text");
+        pForecastWind.classList.add("card-text");
+        pForecastHumidity.classList.add("card-text");
+
+        cardDiv.classList.add("col-2");
+
+        cardDiv.appendChild(hDt);
+        cardDiv.appendChild(pForecastTemp);
+        cardDiv.appendChild(pForecastWind);
+        cardDiv.appendChild(pForecastHumidity);
+
+        fiveDay.appendChild(cardDiv);
+      }
     });
 }
 
@@ -55,6 +74,7 @@ function currentWeather(city) {
     })
     .then(function (currentData) {
       console.log(currentData);
+      currentWeatherDiv.textContent = "";
 
       var city = currentData.name;
       var date = currentData.dt;
@@ -93,8 +113,22 @@ function currentWeather(city) {
     });
 }
 
+function cityButtons(city) {
+  var pastCities = document.createElement("button");
+  pastCities.textContent = city;
+  pastCities.classList.add("pastCities");
+  cityList.appendChild(pastCities);
+}
+
+cityList.addEventListener("click", function (event) {
+  var prevCity = event.target.innerHTML;
+  currentWeather(prevCity);
+});
+
 searchBtn.addEventListener("click", function () {
   console.log("Hi");
   var searchValue = document.getElementById("searchBox").value;
+  document.getElementById("searchBox").value = "";
   currentWeather(searchValue);
+  cityButtons(searchValue);
 });
