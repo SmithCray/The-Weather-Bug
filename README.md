@@ -1,91 +1,67 @@
-# 06 Server-Side APIs: Weather Dashboard
+## Title:
 
-## Your Task
+# The-Weather-Bug
 
-Third-party APIs allow developers to access their data and functionality by making requests with specific parameters to a URL. Developers are often tasked with retrieving data from another application's API and using it in the context of their own. Your challenge is to build a weather dashboard that will run in the browser and feature dynamically updated HTML and CSS.
+[**The Weather Bug**](https://smithcray.github.io/The-Weather-Bug/) is a simple and easy web application that provides real-time weather updates as a user inputs a given location, our site provides up to date information aswell as a simple and easy to follow display. The Weather Bug uses Api's to access weather information on any city by referencing open source Api's to provide a lorge amount of data at the push of a button. Our goal is to provide fast, easy, and accurate imformation to our users in real-time all in one place.
 
-Use the [OpenWeather One Call API](https://openweathermap.org/api/one-call-api) to retrieve weather data for cities. Read through the documentation for setup and usage instructions. You will use `localStorage` to store any persistent data. For more information on how to work with the OpenWeather API, refer to the [Full-Stack Blog on how to use API keys](https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys).
+## Roadmap:
 
-## User Story
+- Html structure
+- Js Link
+- Access Api (Api Key)
+- Present user request data
+- Save user request data
 
-```
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
-```
+## A Little About The Api's:
 
-## Acceptance Criteria
+Current Weather Data:
 
-```
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
-```
+- Access current weather data for any location including over 200,000 cities
+- We collect and process weather data from different sources such as global and - - local weather models, satellites, radars and a vast network of weather stations
+- JSON, XML, and HTML formats
+- Included in both free and paid subscriptions
 
-## Mock-Up
+One Call Api:
 
-The following image shows the web application's appearance and functionality:
+- Make one API call and get current, forecast and historical weather data
+- Minute forecast for 1 hour
+- Hourly forecast for 48 hours
+- Daily forecast for 7 days
+- Historical data for 5 previous days
+- National weather alerts
+- JSON format
+- Included in both free and paid subscriptions
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for Atlanta.](./Assets/06-server-side-apis-homework-demo.png)
+## Web Preview:
 
-## Grading Requirements
+![Webpage Preview](weatherbugshot.PNG)
 
-This homework is graded based on the following criteria:
+## Deplopyed links:
 
-### Technical Acceptance Criteria: 40%
+(https://smithcray.github.io/The-Weather-Bug/)
 
-- Satisfies all of the above acceptance criteria plus the following:
+## Repository link:
 
-  - Uses the OpenWeather API to retrieve weather data.
+(https://github.com/SmithCray/The-Weather-Bug)
 
-  - Uses `localStorage` to store persistent data.
+## Copyright (c) [2021] [Cray Smith]
 
-### Deployment: 32%
+#
 
-- Application deployed at live URL.
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-- Application loads with no errors.
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-- Application GitHub URL submitted.
-
-- GitHub repository that contains application code.
-
-### Application Quality: 15%
-
-- Application user experience is intuitive and easy to navigate.
-
-- Application user interface style is clean and polished.
-
-- Application resembles the mock-up functionality provided in the homework instructions.
-
-### Repository Quality: 13%
-
-- Repository has a unique name.
-
-- Repository follows best practices for file structure and naming conventions.
-
-- Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-- Repository contains multiple descriptive commit messages.
-
-- Repository contains quality readme file with description, screenshot, and link to deployed application.
-
-## Review
-
-You are required to submit BOTH of the following for review:
-
-- The URL of the functional, deployed application.
-
-- The URL of the GitHub repository. Give the repository a unique name and include a readme describing the project.
-
----
-
-© 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
